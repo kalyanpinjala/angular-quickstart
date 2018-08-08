@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PlayersComponent } from './players/players.component';
+import { CountryFlagComponent } from './shared/country-flag.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayersComponent
+    PlayersComponent,
+    CountryFlagComponent
   ],
   imports: [
     BrowserModule,

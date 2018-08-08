@@ -22,13 +22,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let player of players">
+            <tr *ngFor="let player of filteredPlayers">
                 <td>
                     <img *ngIf="showImage" [src]='player.imageUrl' [style.width.px]='imageWidth' />
                 </td>
                 <td>{{player.rank}}</td>
                 <td>{{player.playerName }}</td>
-                <td>{{player.country | uppercase}}</td>
+                <!-- <td>{{player.country | uppercase}}</td> -->
+                <td><app-country-flag [countryCode]='player.countryCode' (flagClick)="countryFlagClicked($event)"></app-country-flag></td>
                 <td>{{player.totals}}</td>
 
             </tr>
