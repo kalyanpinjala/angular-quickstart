@@ -1,0 +1,30 @@
+<div *ngIf="player" style="height: 100%;position: relative;">
+    <div style="background-color:whitesmoke;height:30px;font-size:20px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:gray">
+        {{pageTitle + ': ' + player.playerName}}
+    </div>
+    <br>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>{{player.playerName}}</td>
+            <td rowspan="4">
+                <img [src]='player.imageUrl'>
+            </td>
+        </tr>
+        <tr>
+            <td>Rank:</td>
+            <td>{{player.rank}}</td>
+        </tr>
+        <tr>
+            <td>Country:</td>
+            <td><app-country-flag [countryCode]="player.countryCode"></app-country-flag></td>
+        </tr>
+        <tr>
+            <td>Total Grand Slams:</td>
+            <td>{{player.totals}}</td>
+        </tr>
+    </table>
+    <div style="position:absolute;bottom:0px;width:100%;background-color:whitesmoke;">
+        <button (click)="onBack()">Back</button>
+    </div>
+</div>

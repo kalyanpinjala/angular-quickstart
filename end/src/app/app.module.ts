@@ -6,16 +6,13 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { PlayersComponent } from './players/players.component';
-import { CountryFlagComponent } from './shared/country-flag.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InMemoryDataService } from './players/in-memory-data.service';
+import { PlayerModule } from './players/player.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayersComponent,
-    CountryFlagComponent,
     DashboardComponent
   ],
   imports: [
@@ -24,12 +21,11 @@ import { InMemoryDataService } from './players/in-memory-data.service';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
     RouterModule.forRoot([
-      { path: 'players', component: PlayersComponent },
-      // { path: 'players/:id', component: PlayerDetailComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
-    ])
+    ]),
+    PlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
